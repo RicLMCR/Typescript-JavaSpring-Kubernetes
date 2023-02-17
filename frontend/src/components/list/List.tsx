@@ -10,16 +10,19 @@ interface IProps {
 
 // list functional component
 const List: React.FC<IProps> = ({ list }) => {
+  // map list of names
+  const listNames = () => {
+    return list.map((lists) => (
+      <div className="listEntry" key={lists.key}>
+        <li>{lists.name}</li>
+      </div>
+    ));
+  };
+
   return (
     <div className="list">
       <h2>Sample List</h2>
-      <ul>
-        {list.map((lists: any) => (
-          <div className="listEntry" key={lists.key}>
-            <li>{lists.name}</li>
-          </div>
-        ))}
-      </ul>
+      <ul>{listNames()}</ul>
     </div>
   );
 };

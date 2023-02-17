@@ -23,9 +23,11 @@ const App = () => {
   ]);
 
   // monitor changes to list and update
-  // as a temp measure - no api call - just update
+  // as a temp measure - no api call - just change the list
   const changeList = () => {
-    setMyList([{ name: "Dave", key: 4 }]);
+    const newEntry = [{ name: "Dave", key: 4 }];
+    setMyList(newEntry);
+    console.log("hello new entry");
   };
 
   return (
@@ -34,7 +36,14 @@ const App = () => {
         <Header />
       </header>
       <List list={myList} />
-      <button type="submit">Change List</button>
+      <button
+        type="submit"
+        onClick={() => {
+          changeList();
+        }}
+      >
+        Change List
+      </button>
       <footer></footer>
     </div>
   );
