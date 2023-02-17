@@ -1,0 +1,17 @@
+body {
+  background-color: rgb(36, 36, 36);
+  color: white;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.listEntry {
+  width: 20vw;
+  border: 3px rgb(255, 255, 255) solid;
+  margin: 10px 0 10px 0;
+}
