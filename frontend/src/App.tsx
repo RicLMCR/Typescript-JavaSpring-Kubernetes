@@ -16,12 +16,11 @@ const App = () => {
   //function makes API call to retrive list object
   //randomise function to be placed at back end
 
-  //List of names
-  // { name: "Steve Smith", key: 1 },
-  // { name: "Bob Banes", key: 2 },
-  // { name: "John Jones", key: 3 },
-
-  const [myList, setMyList] = useState<IState["myList"]>([]);
+  const [myList, setMyList] = useState<IState["myList"]>([
+    { name: "Steve Smith", key: 1 },
+    { name: "Bob Banes", key: 2 },
+    { name: "John Jones", key: 3 },
+  ]);
 
   // monitor changes to list and update
   // as a temp measure - no api call - just update

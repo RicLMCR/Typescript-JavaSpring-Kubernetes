@@ -13,14 +13,13 @@ const List: React.FC<IProps> = ({ list }) => {
   return (
     <div className="list">
       <h2>Sample List</h2>
-
-      {list.map((lists: any) => (
-        <div className="listEntry" key={lists.key}>
-          <ul>
+      <ul>
+        {list.map((lists: any) => (
+          <div className="listEntry" key={lists.key}>
             <li>{lists.name}</li>
-          </ul>
-        </div>
-      ))}
+          </div>
+        ))}
+      </ul>
     </div>
   );
 };
