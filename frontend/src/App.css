@@ -4,6 +4,21 @@ body {
   text-align: center;
 }
 
+.componentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.componentWrap {
+  border: 1px solid white;
+  width: 400px;
+  height: 400px;
+  padding: 2em;
+  margin: 2em;
+}
+
 .list {
   display: flex;
   flex-direction: column;

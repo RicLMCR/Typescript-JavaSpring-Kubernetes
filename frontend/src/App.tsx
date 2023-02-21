@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./App.css";
+import CopyMessage from "./components/copyMessage/CopyMessage";
 import Header from "./components/header/Header";
 import List from "./components/list/List";
 
@@ -22,28 +23,53 @@ const App = () => {
     { name: "John Jones", key: 3 },
   ]);
 
-  // monitor changes to list and update
+  // Store copy to clipboard popup message
+  const [copyMessageState, setCopyMessageState] =
+    useState<string>("Copy to Clipboard");
+
   // as a temp measure - no api call - just change the list
   const changeList = () => {
     const newEntry = [{ name: "Dave", key: 4 }];
     setMyList(newEntry);
-    console.log("hello new entry");
   };
+
+  // Change copy to clipboard message and back again
+  const timeChange = (textChange: string) => {
+    setCopyMessageState(textChange);
+    setTimeout(() => {
+      setCopyMessageState("Copy to Clipboard");
+    }, 2000);
+  };
+
+  // monitor changes to list and update
 
   return (
     <div className="App">
       <header>
         <Header />
       </header>
-      <List list={myList} />
-      <button
-        type="submit"
-        onClick={() => {
-          changeList();
-        }}
-      >
-        Change List
-      </button>
+
+      <div className="componentContainer">
+        <div className="componentWrap">
+          <List list={myList} />
+
+          <button
+            type="submit"
+            onClick={() => {
+              changeList();
+            }}
+          >
+            Change List
+          </button>
+        </div>
+        <div className="componentWrap">
+          <CopyMessage copyMessage={copyMessageState} />
+          <button onClick={() => timeChange("Succesfully Copied")}>
+            Change copy sign
+          </button>
+        </div>
+      </div>
+
       <footer></footer>
     </div>
   );
