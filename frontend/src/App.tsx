@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import CopyMessage from "./components/copyMessage/CopyMessage";
 import Header from "./components/header/Header";
 import List from "./components/list/List";
+import Counter from "./components/counter/Counter";
 
 interface IState {
   myList: {
@@ -11,6 +13,11 @@ interface IState {
     key: number;
   }[];
 }
+
+interface IREDUXSTATE {
+  count: number;
+}
+
 const App = () => {
   //state to hold list object
   //useeffect hook to trigger API function call
@@ -41,6 +48,8 @@ const App = () => {
     }, 2000);
   };
 
+  // redux state call
+  const myCount = useSelector<IREDUXSTATE>((state: any) => state.counter.count);
   // monitor changes to list and update
 
   return (
@@ -67,6 +76,9 @@ const App = () => {
           <button onClick={() => timeChange("Succesfully Copied")}>
             Change copy sign
           </button>
+        </div>
+        <div className="componentWrap">
+          <Counter />
         </div>
       </div>
 
