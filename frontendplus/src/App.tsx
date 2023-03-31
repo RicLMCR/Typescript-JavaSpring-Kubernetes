@@ -1,11 +1,14 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import "./App.css";
-import CopyMessage from "./components/copyMessage/CopyMessage";
-import Header from "./components/header/Header";
-import List from "./components/list/List";
-import Counter from "./components/counter/Counter";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import './App.css';
+import CopyMessage from './components/copyMessage/CopyMessage';
+import Header from './components/header/Header';
+import List from './components/list/List';
+import Counter from './components/counter/Counter';
+import TypescriptTest from './components/typescriptTests/TypescriptTest';
+import GenName from './components/conditionalProps/GenName';
+import GenAge from './components/conditionalProps/GenAge';
 
 interface IState {
   myList: {
@@ -24,19 +27,19 @@ const App = () => {
   //function makes API call to retrive list object
   //randomise function to be placed at back end
 
-  const [myList, setMyList] = useState<IState["myList"]>([
-    { name: "Steve Smith", key: 1 },
-    { name: "Bob Banes", key: 2 },
-    { name: "John Jones", key: 3 },
+  const [myList, setMyList] = useState<IState['myList']>([
+    { name: 'Steve Smith', key: 1 },
+    { name: 'Bob Banes', key: 2 },
+    { name: 'John Jones', key: 3 },
   ]);
 
   // Store copy to clipboard popup message
   const [copyMessageState, setCopyMessageState] =
-    useState<string>("Copy to Clipboard");
+    useState<string>('Copy to Clipboard');
 
   // as a temp measure - no api call - just change the list
   const changeList = () => {
-    const newEntry = [{ name: "Dave", key: 4 }];
+    const newEntry = [{ name: 'Dave', key: 4 }];
     setMyList(newEntry);
   };
 
@@ -44,7 +47,7 @@ const App = () => {
   const timeChange = (textChange: string) => {
     setCopyMessageState(textChange);
     setTimeout(() => {
-      setCopyMessageState("Copy to Clipboard");
+      setCopyMessageState('Copy to Clipboard');
     }, 2000);
   };
 
@@ -73,12 +76,20 @@ const App = () => {
         </div>
         <div className="componentWrap">
           <CopyMessage copyMessage={copyMessageState} />
-          <button onClick={() => timeChange("Succesfully Copied")}>
+          <button onClick={() => timeChange('Succesfully Copied')}>
             Change copy sign
           </button>
         </div>
         <div className="componentWrap">
           <Counter />
+        </div>
+        <div className="componentWrap">
+          <TypescriptTest />
+        </div>
+        <div className="componentWrap">
+          <h1>Conditional Props & Types</h1>
+            <GenName/>
+            <GenAge/>
         </div>
       </div>
 

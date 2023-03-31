@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import Counter from "./Counter";
 import { useSelector } from "react-redux";
@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <h1>Redux Tests</h1>
       <h2>The count is: {count}</h2>
-
       <Counter />
     </div>
   );

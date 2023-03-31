@@ -1,10 +1,12 @@
-import { combineReducers, legacy_createStore } from "redux";
+// Passes Provider to the index.js file
+
+import { combineReducers, createStore} from 'redux';
 import counterReducer from './ducks/Counter';
 
 const reducer = combineReducers({
-    counter: counterReducer
+  counter: counterReducer
 })
 
-const store = legacy_createStore(reducer);
+const store = createStore(reducer);
 
 export default store;

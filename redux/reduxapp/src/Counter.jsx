@@ -1,30 +1,30 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { increment,decrement } from "./redux/ducks/Counter";
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment } from "./redux/ducks/Counter";
+
 
 const Counter = () => {
-  //   const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
 
-  //   const increment = () => {
-  //     setCount(count + 1);
-  //   };
+    // const count = useSelector(state => state.counter.count)
 
-  //   const decrement = () => {
-  //     setCount(count - 1);
-  //   };
+    const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
 
-  const handleIncrement = ()=>{
-    dispatch(increment())
-  };
+    const handleIncrement = ()=>{
+    dispatch(increment());
+    // setCount(count + 1)
 
-  const handleDecrement = ()=>{
+    };
+
+    const handleDecrement = ()=>{
     dispatch(decrement())
-  };
+    // setCount(count - 1)
+    };
 
   return (
     <>
+      {/* <h1>Count is: {count}</h1> */}
       <button onClick={handleIncrement}>increment</button>
       <button onClick={handleDecrement}>decrement</button>
     </>
